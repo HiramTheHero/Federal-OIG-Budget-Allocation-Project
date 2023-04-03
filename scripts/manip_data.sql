@@ -24,7 +24,6 @@ ig_data
 join
 category_data using (OCC);
 
-
 create or replace table plot_data as
 select
 RECORDING_DATE,
@@ -53,3 +52,4 @@ update plot_data set AGYSUB = 'General Services Administration' where AGYSUB = '
 
 ALTER TABLE plot_data RENAME AGYSUB TO "Federal Agency";
 ALTER TABLE plot_data RENAME RECORDING_DATE TO "Recording Date";
+

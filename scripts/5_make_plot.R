@@ -6,7 +6,7 @@ con <- dbConnect(duckdb::duckdb(), dbdir = "data/db.duckdb", read_only = TRUE)
 
 res <- dbGetQuery(con, "SELECT * FROM plot_data")
 
-dbDisconnect(con)
+dbDisconnect(con, shutdown = TRUE)
 
 res$`Recording Date` <- ymd(res$`Recording Date`)
 
@@ -29,7 +29,7 @@ plot <- ggplot(res, aes(x = `Recording Date`, y = `Investigation to Audit Ratio`
                                    "General Services Administration" = 12)) +
      scale_x_date(date_breaks = "1 year", date_labels = "%Y")
 
-ggsave("./plots/ratio.svg",
+ggsave("./plots/oig_fte_ratio.svg",
 plot,
 width = 20,
 height = 15,

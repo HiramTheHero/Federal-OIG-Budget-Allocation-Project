@@ -1,2 +1,0 @@
-Used this website to convert svg to emf:
-https://cloudconvert.com/svg-to-emf

@@ -1,6 +1,6 @@
-library(duckdb)
-library(ggplot2)
-library(lubridate)
+if (!require('duckdb')) install.packages('duckdb'); library('duckdb')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+if (!require('lubridate')) install.packages('lubridate'); library('lubridate')
 
 con <- dbConnect(duckdb::duckdb(), dbdir = "data/db.duckdb", read_only = TRUE)
 

@@ -26,7 +26,7 @@ plot <- ggplot(res, aes(x = `Recording Date`, y = `Investigation to Audit Ratio`
                                    "Department of Transportation" = 10,
                                    "Department of The Treasury" = 11,
                                    "Department of Veterans Affairs" = 12,
-                                   "General Services Administration" = 12)) +
+                                   "General Services Administration" = 13)) +
      scale_x_date(date_breaks = "1 year", date_labels = "%Y")
 
 ggsave("./plots/oig_fte_ratio.svg",

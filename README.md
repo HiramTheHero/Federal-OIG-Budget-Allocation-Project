@@ -10,7 +10,7 @@ The procedure uses DuckDB (version 7.1) for the data processing, and R for the c
 ## Usage Instructions
 
 1. Make sure you have the command line version of DuckDB downloaded. (https://duckdb.org/#quickinstall)
-2. Make sure you have R installed and the following packages `duckdb` , `ggplot2` , and `lubridate`. (The script will download them if they aren't installed beforehand.)
+2. Make sure you have R installed and the following packages `Require`, `duckdb` , `ggplot2` , and `lubridate`. (The script will download them if they aren't installed beforehand.)
 3. Open the downloaded directory in your terminal and run `scripts/0_the_whole_procedure.sh`
 
 

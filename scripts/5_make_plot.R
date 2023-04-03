@@ -1,6 +1,11 @@
-if (!require('duckdb')) install.packages('duckdb'); library('duckdb')
-if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
-if (!require('lubridate')) install.packages('lubridate'); library('lubridate')
+if (!require("Require")) {install.packages("Require", repos = "https://cloud.r-project.org/"); require(Require)}
+
+library(Require)
+getCRANrepos(ind = 1)
+
+projectPackages <- "projectRPackages"
+dir.create(projectPackages)
+Require(c("ggplot2", "duckdb", "lubridate"), standAlone = TRUE, libPaths = projectPackages)
 
 con <- dbConnect(duckdb::duckdb(), dbdir = "data/db.duckdb", read_only = TRUE)
 
@@ -22,7 +27,7 @@ plot <- ggplot(res, aes(x = `Recording Date`, y = `Investigation to Audit Ratio`
                                    "Department of Homeland Security" = 6,
                                    "Department of Housing And Urban Development" = 7,
                                    "Department of Justice" = 8,
-                                   "Department of Labor" = 9,
+                                   "Department of Labor" = 8,
                                    "Department of Transportation" = 10,
                                    "Department of The Treasury" = 11,
                                    "Department of Veterans Affairs" = 12,

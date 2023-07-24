@@ -25,6 +25,7 @@ join
 category_data using (OCC);
 
 create or replace table plot_data as
+
 select
 RECORDING_DATE,
 AGYSUB,
@@ -34,8 +35,10 @@ count(case CATEGORY when 'audit' then 1 else null end) as "Audit Positions",
 count(case CATEGORY when 'other' then 1 else null end) as "Other Positions",
 cast("Investigation Positions" as double) / cast("Audit Positions" as double) as "Investigation to Audit Ratio"
 from plot_view
+where AGYSUB <> 'GS15'
 group by RECORDING_DATE, AGYSUB
 order by RECORDING_DATE, AGYSUB;
+
 
 update plot_data set AGYSUB = 'Department of Agriculture' where AGYSUB = 'AG23';
 update plot_data set AGYSUB = 'Department of Defense' where AGYSUB = 'DD26';
